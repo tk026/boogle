@@ -21,11 +21,13 @@
     <div class="row">
       <div class="col-md-2"></div>
       <div class="col-md-8 col-sm-12">
-          <div class="field" id="searchform">
-            <input type="text" name="q" autofocus required />
+        <form action="results.php" method="GET">
+            <div class="field" id="searchform">
+              <input type="text" name="q" autofocus required />
 
-            <button type="submit" id="search">Search</button>
-          </div>
+              <button type="submit" id="search">Search</button>
+            </div>
+          </form>
       </div>
       <div class="col-md-2"></div>
     </div>
