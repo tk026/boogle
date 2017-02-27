@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="en-nz">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Boogle</title>
-
-  <link rel="stylesheet" type="text/css" href="css/app.css">
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-</head>
-<body>
+<?php require 'partials/header.php'; ?>
   <div class="container">
     <div class="row">
       <h1>
@@ -41,5 +30,5 @@
       <div class="col-md-3"></div>
     </div>
   </div>
-</body>
-</html>
+<?php require 'partials/footer.php'; ?>
+
