@@ -1,3 +1,6 @@
+<?php
+  $searchQuery = $_GET['q'];
+?>
 <!DOCTYPE html>
 <html lang="en-nz">
 <head>
@@ -33,7 +36,7 @@
         <li>
           <form action="results.php" method="GET">
             <div class="field top-bar-search" id="searchform">
-              <input type="text" name="q" autofocus required value="$searchQuery" />
+              <input type="text" name="q" autofocus required value="<?= $searchQuery; ?>" />
             </div>
           </form>
         </li>
@@ -46,7 +49,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <h4>Search results for <strong>$searchQuery</strong></h4>
+      <h4>Search results for <strong><?= $searchQuery; ?></strong></h4>
       <!-- Displayed results -->
       <ul class="list-group">
         <!-- Single Result -->
