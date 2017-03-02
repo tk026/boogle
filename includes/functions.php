@@ -47,3 +47,21 @@ function searchWebsites($dbh, $searchQuery) {
   $result = $sth->fetchAll();
   return $result;
 }
+
+// This function adds the contents of the feedback from to the database
+function addFeedbackToDatabase($dbh, $name, $email, $feedback) {
+  //Prepare the statement that will be executed.
+  $sth = $dbh->prepare('INSERT INTO feedback (name, email, feedback, created_at) VALUES (:name, :email, :feedback, NOW())');
+
+  // Bind the "$name" to the SQL statement.
+  $sth->bindValue(':name', $name, PDO::PARAM_STR);
+  // Bind the "$email" to the SQL statement.
+  $sth->bindValue(':email', $email, PDO::PARAM_STR);
+  // Bind the "$feedback" to the SQL statement.
+  $sth->bindValue(':feedback', $feedback, PDO::PARAM_STR);
+
+  // Execute the statement.
+  $success = $sth->execute();
+
+  return $success;
+}
