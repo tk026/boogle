@@ -1,24 +1,21 @@
 <?php
+  // Include the config file which will contain database details etc.
+  require 'includes/config.php';
+
   // Save the query submitted to a variable
-  $searchQuery = $_GET['q'];
+  $searchQuery = (!empty($_GET['q'])) ? htmlspecialchars($_GET['q'], ENT_QUOTES, 'utf-8') : '';
+  // BAD, please don't use line below!
+  // $searchQuery = $_GET['q'];
 
   // Pull in the large data array
-  $data = require 'includes/data.php';
+  // $data = require 'includes/data.php';
+  // $data = searchWebsites($dbh, $searchQuery);
 
-  // This magical function searches through an array
-  function filterResults($searchQuery, $data) {
-          $matches = [];
-
-          foreach ($data as $key => $value) {
-            if (strpos(strtolower($value['text']), strtolower($searchQuery)) !== false) {
-              $matches[] = $value;
-            }
-          }
-          return $matches;
-      }
-
-  // Here is where the magical function is called and returns the results.
-  $terms = filterResults($searchQuery, $data);
+  if (!empty($searchQuery)) {
+    // Here is where the magical function is called and returns the results.
+    // $terms = filterResults($searchQuery, $data);
+    $terms = searchWebsites($dbh, $searchQuery);
+  }
 
   require 'partials/header.php';
   require 'partials/navigation.php';
