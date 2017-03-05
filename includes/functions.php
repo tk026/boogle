@@ -1,5 +1,20 @@
 <?php
+//This function adds the contentsof the feedback form to the database
+function addFeedbackToDatabase($dbh, $name,$email, $feedback) {
+  $sth = $dbh->prepare('INSERT INTO feedback(name, email, feedback,created_at) VALUES (:name, :email, :feedback, NOW())');
 
+  $sth->bindValue(':name', $name, PDO::PARAM_STR);
+
+  $sth->bindValue(':name', $name, PDO::PARAM_STR);
+
+  $sth->bindValue(':name', $name, PDO::PARAM_STR);
+
+  $success = $sth->execute();
+
+  return $sucess;
+}
+
+}
 function connectDatabase($host, $database, $user, $pass){
   try {
     $dbh = new PDO('mysql:host=' . $host . ';dbname=' . $database, $user, $pass, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
