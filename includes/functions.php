@@ -65,3 +65,14 @@ function addFeedbackToDatabase($dbh, $name, $email, $feedback) {
 
   return $success;
 }
+
+function sendEmail($name, $email, $feedback) {
+  $to      = 'mrurlwin@gmail.com';
+  $subject = 'the subject';
+  $message = 'Feedback from: <strong>' . $name . ' (' . $email . ')</strong>' . "\r\n" . 'Message: <strong>' . $feedback . '</strong>';
+  $headers = 'From: ' .  $email . "\r\n" .
+      'Reply-To: ' .  $email . "\r\n";
+
+  $success = mail($to, $subject, $message, $headers);
+  return $success;
+}

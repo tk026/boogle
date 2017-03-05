@@ -40,6 +40,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     die('There was an error submitting your feedback');
   }
 
+  // Optional send using PHP built in mail function (not recommended) and only works on mac/linux
+  // $emailSuccess = sendEmail($name, $email, $feedback);
+
+  // if (!$success && !$emailSuccess) {
+  //   die('There was an error submitting your feedback');
+  // }
+
   require 'thanks.php';
   die();
 }
